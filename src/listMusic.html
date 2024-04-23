@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="music.js"></script>
+    <title>Musique</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url("image.png");
+      }
+      .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #ffffff88;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        color: #ffffff;
+        
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      li {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        cursor: pointer;
+        font-weight: bold;
+        /* color: white; */
+      }
+      .hidden {
+        display: none;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+        
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Style de musique</h1>
+      <ul>
+        <li onclick="toggleList('list1')">Rap</li>
+        <ul id="list1" class="hidden">
+          <li>
+            <a
+              href="rap/13organisé.html?valeur=1"
+              id="1"
+              onclick="recupererValeurId(this);"
+              >Bande Organisée - Jul</a
+            >
+          </li>
+          <li>Chanson 1 - Option 2</li>
+          <li>Chanson 1 - Option 3</li>
+        </ul>
+        <li onclick="toggleList('list2')">Rock</li>
+        <ul id="list2" class="hidden">
+          <li>Chanson 2 - Option 1</li>
+          <li>Chanson 2 - Option 2</li>
+          <li>Chanson 2 - Option 3</li>
+        </ul>
+        <li onclick="toggleList('list3')">Pop</li>
+        <ul id="list3" class="hidden">
+          <li>
+            <a
+              href="rap/13organisé.html?valeur=2"
+              onclick="recupererValeurId(this);"
+            >
+              Dua Lipa - Houdini</a
+            >
+          </li>
+          <li>Chanson 1 - Option 2</li>
+          <li>Chanson 1 - Option 3</li>
+        </ul>
+        <li onclick="toggleList('list4')">Electro</li>
+        <ul id="list4" class="hidden">
+          <li>Chanson 2 - Option 1</li>
+          <li>Chanson 2 - Option 2</li>
+          <li>Chanson 2 - Option 3</li>
+        </ul>
+        
+      </ul>
+    </div>
+
+    <script>
+      function toggleList(id) {
+        var list = document.getElementById(id);
+        if (list.classList.contains("hidden")) {
+          list.classList.remove("hidden");
+        } else {
+          list.classList.add("hidden");
+        }
+      }
+
+      function recupererValeurId(element) {
+        var idValue = element.getAttribute("id");
+        console.log("La valeur de l'attribut 'id' est : " + idValue);
+        console.log("La valeur de 'valeur' dans l'URL est : " + idValue);
+        window.location.href = "page2.html?valeur=" + idValue; // Redirige vers la page2.html avec la valeur dans l'URL
+      }
+    </script>
+  </body>
+</html>
