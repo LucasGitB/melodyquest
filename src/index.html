@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire de Choix de Musique</title>
+    <script src="https://play.workadventu.re/iframe_api.js"></script>
+    <script>
+        // Tableau pour stocker les choix
+        let musicSelections = [];
+
+        function submitForm(event) {
+          
+            event.preventDefault(); // Empêcher le rechargement de la page
+
+            // Récupérer les valeurs du formulaire
+            const musicTitle = document.getElementById("music-title").value;
+            const musicType = document.getElementById("music-type").value;
+
+            // Créer un objet pour stocker le titre et le type
+            const musicChoice = {
+                title: musicTitle,
+                type: musicType
+            };
+
+            // Ajouter l'objet au tableau
+            musicSelections.push(musicChoice);
+            
+            WA.room.showLayer("rap-room")
+
+
+    // Envoie l'événement à tous les joueurs
+    WA.event.broadcast("INVITATION_KARAOKE", "my payload");
+            
+        }
+    </script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background: linear-gradient(to bottom right, violet, orange);
+      }
+      .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #ffffff88;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        color: #ffffff;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      li {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        cursor: pointer;
+        font-weight: bold;
+        /* color: white; */
+      }
+      .hidden {
+        display: none;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+    </style>
+</head>
+<body>
+    <h2>Choisissez votre musique</h2>
+    <form onsubmit="submitForm(event)"> <!-- Appeler la fonction lors de la soumission du formulaire -->
+        <div>
+            <label for="music-title">Titre de musique :</label>
+            <input type="text" id="music-title" name="music-title" required />
+        </div>
+        <div>
+            <label for="music-type">Type de musique :</label>
+            <select id="music-type" name="music-type" required>
+                <option value="">--Choisissez un type--</option>
+                <option value="Rock">Rock</option>
+                <option value="Pop">Pop</option>
+                <option value="Jazz">Jazz</option>
+                <option value="Classique">Classique</option>
+                <option value="Hip-Hop">Hip-Hop</option>
+            </select>
+        </div>
+        <div>
+            <button type="submit">Ajouter</button> <!-- Bouton pour soumettre le formulaire -->
+        </div>
+    </form>
+</body>
+</html>

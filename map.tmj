@@ -1845,8 +1845,14 @@
                 }],
          "name":"rap-room",
          "opacity":1,
+         "properties":[
+                {
+                 "name":"openWebsiteAllowApi",
+                 "type":"bool",
+                 "value":true
+                }],
          "type":"group",
-         "visible":true,
+         "visible":false,
          "x":0,
          "y":0
         }, 
@@ -2682,7 +2688,29 @@
          "draworder":"topdown",
          "id":87,
          "name":"floorLayer",
-         "objects":[],
+         "objects":[
+                {
+                 "height":56,
+                 "id":20,
+                 "name":"CreateGameZone",
+                 "properties":[
+                        {
+                         "name":"openWebsite",
+                         "type":"string",
+                         "value":"src\/index.html"
+                        }, 
+                        {
+                         "name":"openWebsiteAllowApi",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":161.333333333333,
+                 "x":1469.33333333333,
+                 "y":1133.33333333333
+                }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
