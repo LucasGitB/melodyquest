@@ -9,37 +9,42 @@ let currentPopup: any = undefined;
 
 
 // Waiting for the API to be ready
-WA.onInit().then(() => {
-    WA.room.hideLayer("rap-room")
-    console.log('Scripting API ready');
-    console.log('Player tags: ', WA.player.tags)
+WA.onInit().then(async () => {
+    //WA.room.hideLayer("rap-room")
+    console.log('Scripting API readyiiiii');
+
+
+    // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
+    bootstrapExtra().then(() => {
+        console.log('Scripting API Extra ready');
+    }).catch(e => console.error(e));
+
     
     
     
-
-    WA.room.area.onEnter('clock').subscribe(() => {
-        const today = new Date();
-        const time = today.getHours() + ":" + today.getMinutes();
-        currentPopup = WA.ui.openPopup("clockPopup", "It's " + time, []);
-    })
-
-    WA.room.area.onLeave('clock').subscribe(closePopup)
-
-
-    const subscription = WA.event.on("INVITATION_KARAOKE").subscribe( async (event) => {
-        const myWebsite = await WA.ui.website.open({
-            url: "./src/invit.html",
-            position: {
-                vertical: "top",
-                horizontal: "left",
-            },
-            size: {
-                height: "20vh",
-                width: "20vw",
-            },
+    
+    const subscription = WA.event.on("New-Game").subscribe((event) => {
+        console.log("Event received", event.data);
+        const x = event.data.pos.x
+        const y = event.data.pos.y 
+        WA.ui.actionBar.addButton({
+            id: 'register-btn',
+            type: 'action',
+            imageSrc: '../public/images/favicon.svg',
+            toolTip: 'Rejoindre',
+            callback: (event) => {
+                console.log('Button clicked', event);
+                // When a user clicks on the action bar button 'Register', we remove it.
+                
+                WA.player.teleport(x, y);
+                WA.ui.actionBar.removeButton('register-btn');
+            }
         });
+    });
+
+    WA.state.onVariableChange('gamesState').subscribe((value) => {
+        console.log("salutttttttt"+value);
         
-        myWebsite.position.vertical = "top";
     });
 
     // WA.room.area.onEnter('CreateGameZone').subscribe(async () => {
@@ -65,10 +70,7 @@ WA.onInit().then(() => {
 
 
 
-    // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
-    bootstrapExtra().then(() => {
-        console.log('Scripting API Extra ready');
-    }).catch(e => console.error(e));
+    
 
 }).catch(e => console.error(e));
 

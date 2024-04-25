@@ -4,35 +4,8 @@
     <meta charset="UTF-8">
     <title>Formulaire de Choix de Musique</title>
     <script src="https://play.workadventu.re/iframe_api.js"></script>
-    <script>
-        // Tableau pour stocker les choix
-        let musicSelections = [];
-
-        function submitForm(event) {
-          
-            event.preventDefault(); // Empêcher le rechargement de la page
-
-            // Récupérer les valeurs du formulaire
-            const musicTitle = document.getElementById("music-title").value;
-            const musicType = document.getElementById("music-type").value;
-
-            // Créer un objet pour stocker le titre et le type
-            const musicChoice = {
-                title: musicTitle,
-                type: musicType
-            };
-
-            // Ajouter l'objet au tableau
-            musicSelections.push(musicChoice);
-            
-            WA.room.showLayer("rap-room")
-
-
-    // Envoie l'événement à tous les joueurs
-    WA.event.broadcast("INVITATION_KARAOKE", "my payload");
-            
-        }
-    </script>
+    <script type="module" src="invit.ts"></script>
+    
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -74,12 +47,8 @@
     </style>
 </head>
 <body>
-    <h2>Choisissez votre musique</h2>
-    <form onsubmit="submitForm(event)"> <!-- Appeler la fonction lors de la soumission du formulaire -->
-        <div>
-            <label for="music-title">Titre de musique :</label>
-            <input type="text" id="music-title" name="music-title" required />
-        </div>
+    <h2>Créer une partie</h2>
+    <form>
         <div>
             <label for="music-type">Type de musique :</label>
             <select id="music-type" name="music-type" required>
@@ -92,7 +61,7 @@
             </select>
         </div>
         <div>
-            <button type="submit">Ajouter</button> <!-- Bouton pour soumettre le formulaire -->
+            <a id="saveButton">Ajouter</a>
         </div>
     </form>
 </body>
