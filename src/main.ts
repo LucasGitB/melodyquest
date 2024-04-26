@@ -24,10 +24,13 @@ WA.onInit()
       .subscribe(() => {
         const playerId = WA.player.uuid;
         console.log(playerId);
+        const playerName = WA.player.name;
+        console.log(playerName);
 
         // Définissez les données du joueur à envoyer
         const playerData = {
           playerId: playerId,
+          playerName: playerName
           // Ajoutez d'autres champs si nécessaire, comme la date de naissance, etc.
         };
 
