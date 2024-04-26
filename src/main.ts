@@ -24,9 +24,7 @@ WA.onInit().then(async () => {
       .onEnter("singerZone")
       .subscribe(async () => {
         const playerId = WA.player.uuid;
-        console.log(playerId);
         const playerName = WA.player.name;
-        console.log(playerName);
 
         noteWebsite = await WA.ui.website.open({
             url: "./src/youtubeIframe.html",
@@ -72,25 +70,22 @@ WA.onInit().then(async () => {
       });
 
     const subscription = WA.event.on("New-Game").subscribe((event: any) => {
-      console.log("Event received", event.data);
       const x: number = event.data.pos.x;
       const y: number = event.data.pos.y;
-      console.log("ptit test" + event.data.invitFor.indexOf(WA.player.name));
       if (event.data.invitFor.indexOf(WA.player.name) !== -1) {
+        WA.chat.open();
+        WA.chat.sendChatMessage('Vous êtes invité pour chanter ! Invitation reçu de la part de ' + event.data.host + 'Cliquer sur le boutton REJOINDRE KARAOKE', { scope: 'local', author: 'Mr Robot' });
         WA.ui.actionBar.addButton({
-          id: "register-btn",
-          type: "action",
-          imageSrc: "../public/images/favicon.svg",
-          toolTip: "Rejoindre",
+          id: "joinKaraoke",
+          label:"Rejoindre Karaoke",
           callback: (event: any) => {
-            console.log("Button clicked", event);
+            
             // When a user clicks on the action bar button 'Register', we remove it.
             WA.player.teleport(x, y);
-            WA.ui.actionBar.removeButton("register-btn");
+            WA.ui.actionBar.removeButton("joinKaraoke");
+            WA.chat.close();
           },
         });
-      } else {
-        console.log("non");
       }
     });
 

@@ -32,17 +32,14 @@
 
         // 4. Fonction appelée lorsque le lecteur est prêt
         function onPlayerReady(event) {
-            console.log("Le lecteur est prêt." + JSON.stringify(event.target));
             event.target.playVideo(); // Démarrer la vidéo automatiquement
-            console.log("salut")
         }
 
         // 5. Fonction appelée lorsque l'état du lecteur change
         function onPlayerStateChange(event) {
             if (event.data === YT.PlayerState.PLAYING) {
-                console.log("La vidéo est en cours de lecture.");
+                console.log("salut")
             } else if (event.data === YT.PlayerState.ENDED) {
-                console.log("test")
                 WA.event.broadcast("VotePeriod", "yes");
             }
         }

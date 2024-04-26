@@ -31,18 +31,27 @@ WA.onInit().then(() => {
         userSelect.appendChild(option);
     }
     saveButton.addEventListener("click", async () => {
+        const area = await WA.room.area.get('karaokeArea');
         const selectedOptions = Array.from(userSelect.selectedOptions); // Obtenir les options sélectionnées
         const invitFor = selectedOptions.map((option) => option.value); // Obtenir les valeurs des options sélectionnées
 
         const game = {
             host: WA.player.name,
             gameInfos: musicType.value,
-            pos: await WA.player.getPosition(),
+            pos: {
+                x:area.x,
+                y:area.y
+            },
             invitFor: invitFor, // Utiliser les valeurs sélectionnées dans user-select
         };
 
-        console.log("GAME =", game);
+        
+
+        
         WA.event.broadcast("New-Game", game);
+
+        
+        WA.player.teleport(area.x, area.y);
     });
 
     
