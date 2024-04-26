@@ -2695,6 +2695,11 @@
                  "name":"CreateGameZone",
                  "properties":[
                         {
+                         "name":"audioVolume",
+                         "type":"float",
+                         "value":0.5
+                        }, 
+                        {
                          "name":"openWebsite",
                          "type":"string",
                          "value":"src\/index.html"
@@ -2703,6 +2708,11 @@
                          "name":"openWebsiteAllowApi",
                          "type":"bool",
                          "value":true
+                        }, 
+                        {
+                         "name":"playAudio",
+                         "type":"string",
+                         "value":"\/public\/song.mp3"
                         }],
                  "rotation":0,
                  "type":"area",
@@ -2777,6 +2787,17 @@
                  "width":537.934888919939,
                  "x":2249.54589911974,
                  "y":1113.59508173816
+                }, 
+                {
+                 "height":54.0326831839748,
+                 "id":20,
+                 "name":"music-background",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":156.826568265683,
+                 "x":1472.06114918292,
+                 "y":1133.36847654191
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -3189,7 +3210,7 @@
          "y":0
         }],
  "nextlayerid":98,
- "nextobjectid":20,
+ "nextobjectid":21,
  "orientation":"orthogonal",
  "properties":[
         {
