@@ -6,6 +6,8 @@
     <script src="https://play.workadventu.re/iframe_api.js"></script>
     <script type="module" src="invit.ts"></script>
     
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -22,54 +24,75 @@
         border-radius: 5px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       }
-      h1 {
+      h1, h2 {
         text-align: center;
         color: #ffffff;
       }
-      ul {
-        list-style-type: none;
-        padding: 0;
+      label {
+        color: #fff;
       }
-      li {
-        padding: 10px;
-        border-bottom: 1px solid #eee;
+      .form-group {
+        margin-bottom: 1rem;
+      }
+      .form-control {
+        display: block;
+        width: 100%;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+      }
+      #saveButton {
+        display: inline-block;
+        font-weight: 400; 
+        color: #fff;
+        text-align: center;
+        vertical-align: middle;
         cursor: pointer;
-        font-weight: bold;
-        /* color: white; */
-      }
-      .hidden {
-        display: none;
-      }
-      a {
-        text-decoration: none;
-        color: black;
+        background-color: #ee82ee;
+        border: 1px solid transparent;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: .25rem;
+        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
       }
     </style>
 </head>
 <body>
-    <h2>Créer une partie</h2>
-    <form>
-        <div>
-            <label for="music-type">Type de musique :</label>
-            <select id="music-type" name="music-type" required>
-                <option value="">--Choisissez un type--</option>
-                <option value="Rock">Rock</option>
-                <option value="Pop">Pop</option>
-                <option value="Jazz">Jazz</option>
-                <option value="Classique">Classique</option>
-                <option value="Hip-Hop">Hip-Hop</option>
-            </select>
-        </div>
+    <div class="container">
+        <form>
+            <div class="form-group">
+              <div class="text-center">
+                <img src="images/logo_map.png" alt="Logo Map">
+              </div>
+                <label for="music-type">Style de musique :</label>
+                <select id="music-type" name="music-type" class="form-control" required>
+                    <option value="">-- Choisissez un style de musique --</option>
+                    <option value="Rock">Rock</option>
+                    <option value="Pop">Pop</option>
+                    <option value="Jazz">Jazz</option>
+                    <option value="Classique">Classique</option>
+                    <option value="Hip-Hop">Hip-Hop</option>
+                </select>
+            </div>
 
-        <div>
-            <label for="user-select">Sélectionnez un utilisateur :</label>
-            <select id="user-select" name="user-select" multiple required>
-                <!-- Les options sont générées dynamiquement -->
-            </select>
-        </div>
-        <div>
-            <a id="saveButton">Ajouter</a>
-        </div>
-    </form>
+            <div class="form-group">
+                <label for="user-select">Sélectionnez un utilisateur :</label>
+                <select id="user-select" name="user-select" class="form-control" multiple required>
+                    <!-- Les options sont générées dynamiquement -->
+                </select>
+            </div>
+            <div class="form-group text-center">
+                <a id="saveButton" class="btn btn-warning">Inviter</a>
+                <a id="saveButton" class="btn btn-warning">Inviter toute la map</a>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
