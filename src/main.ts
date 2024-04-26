@@ -20,13 +20,13 @@ WA.onInit().then(async () => {
       })
       .catch((e) => console.error(e));
 
-    const myAreaSubscriber = WA.room.area
+    const singerZone = WA.room.area
       .onEnter("singerZone")
       .subscribe(async () => {
         const playerId = WA.player.uuid;
         const playerName = WA.player.name;
 
-        noteWebsite = await WA.ui.website.open({
+       noteWebsite = await WA.ui.website.open({
             url: "./src/youtubeIframe.html",
             position: {
                 vertical: "top",
@@ -48,26 +48,13 @@ WA.onInit().then(async () => {
         };
 
         // Envoie de la requête POST à l'API
-        fetch("http://localhost:3000/players", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(playerData),
-        })
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error("Network response was not ok");
-            }
-            return response.json();
+        WA.room.area.onLeave("singerZone").subscribe(()=>{
+            console.log("saluhhhhhhht")
+            noteWebsite.close();
           })
-          .then((data) => {
-            console.log("Nouveau joueur inséré:", data);
-          })
-          .catch((error) => {
-            console.error("Error:", error);
-          });
       });
+
+      
 
     const subscription = WA.event.on("New-Game").subscribe((event: any) => {
       const x: number = event.data.pos.x;
