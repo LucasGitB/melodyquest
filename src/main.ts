@@ -26,20 +26,26 @@ WA.onInit().then(async () => {
     const subscription = WA.event.on("New-Game").subscribe((event) => {
         console.log("Event received", event.data);
         const x = event.data.pos.x
-        const y = event.data.pos.y 
-        WA.ui.actionBar.addButton({
-            id: 'register-btn',
-            type: 'action',
-            imageSrc: '../public/images/favicon.svg',
-            toolTip: 'Rejoindre',
-            callback: (event) => {
-                console.log('Button clicked', event);
-                // When a user clicks on the action bar button 'Register', we remove it.
-                
-                WA.player.teleport(x, y);
-                WA.ui.actionBar.removeButton('register-btn');
-            }
-        });
+        const y = event.data.pos.y
+        console.log("ptit test"+event.data.invitFor.indexOf(WA.player.name))
+        if(event.data.invitFor.indexOf(WA.player.name)!=-1){
+            WA.ui.actionBar.addButton({
+                id: 'register-btn',
+                type: 'action',
+                imageSrc: '../public/images/favicon.svg',
+                toolTip: 'Rejoindre',
+                callback: (event) => {
+                    console.log('Button clicked', event);
+                    // When a user clicks on the action bar button 'Register', we remove it.
+                    
+                    WA.player.teleport(x, y);
+                    WA.ui.actionBar.removeButton('register-btn');
+                }
+            });
+        }else{
+            console.log("non")
+        }
+        
     });
 
     WA.state.onVariableChange('gamesState').subscribe((value) => {
