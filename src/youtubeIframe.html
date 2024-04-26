@@ -3,7 +3,7 @@
 <head>
     <title>YouTube IFrame Player</title>
     <script src="https://play.workadventu.re/iframe_api.js"></script>
-    <script type="module" src=".ts"></script>
+    <script type="module" src=""></script>
 </head>
 <body>
     <!-- 1. Le <div> où l'iframe (et le lecteur YouTube) sera créé -->
@@ -17,7 +17,7 @@
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
         // 3. Fonction pour créer un <iframe> (et un lecteur YouTube)
-        var player;
+        
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('player', {
                 height: '360',
@@ -32,8 +32,9 @@
 
         // 4. Fonction appelée lorsque le lecteur est prêt
         function onPlayerReady(event) {
-            console.log("Le lecteur est prêt.");
+            console.log("Le lecteur est prêt." + JSON.stringify(event.target));
             event.target.playVideo(); // Démarrer la vidéo automatiquement
+            console.log("salut")
         }
 
         // 5. Fonction appelée lorsque l'état du lecteur change
@@ -41,7 +42,8 @@
             if (event.data === YT.PlayerState.PLAYING) {
                 console.log("La vidéo est en cours de lecture.");
             } else if (event.data === YT.PlayerState.ENDED) {
-                
+                console.log("test")
+                WA.event.broadcast("VotePeriod", "yes");
             }
         }
 

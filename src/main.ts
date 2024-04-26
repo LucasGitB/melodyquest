@@ -7,8 +7,9 @@ console.log("Script started successfully");
 let currentPopup: any = undefined;
 
 // Waiting for the API to be ready
-WA.onInit()
-  .then(async () => {
+WA.onInit().then(async () => {
+    let noteWebsite: any;
+    let votingPeriod: any;
     //WA.room.hideLayer("rap-room")
     console.log("Scripting API readyiiiii");
 
@@ -21,11 +22,25 @@ WA.onInit()
 
     const myAreaSubscriber = WA.room.area
       .onEnter("singerZone")
-      .subscribe(() => {
+      .subscribe(async () => {
         const playerId = WA.player.uuid;
         console.log(playerId);
         const playerName = WA.player.name;
         console.log(playerName);
+
+        noteWebsite = await WA.ui.website.open({
+            url: "./src/youtubeIframe.html",
+            position: {
+                vertical: "top",
+                horizontal: "left",
+            },
+            size: {
+                height: "50vh",
+                width: "70vw",
+            },
+
+            allowApi: true,
+        });
 
         // Définissez les données du joueur à envoyer
         const playerData = {
@@ -79,8 +94,20 @@ WA.onInit()
       }
     });
 
-    WA.state.onVariableChange("gamesState").subscribe((value) => {
-      console.log("salutttttttt" + value);
+     WA.event.on("VotePeriod").subscribe(async(event: any) => {
+         votingPeriod= await WA.ui.website.open({
+            url: "https://melodyquestrating.vercel.app/ ",
+            position: {
+                vertical: "top",
+                horizontal: "left",
+            },
+            size: {
+                height: "50vh",
+                width: "70vw",
+            },
+
+            allowApi: true,
+        });
     });
 
     // WA.room.area.onEnter('CreateGameZone').subscribe(async () => {

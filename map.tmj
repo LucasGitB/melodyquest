@@ -2750,6 +2750,33 @@
                  "width":75.607870091932,
                  "x":2475.29856516883,
                  "y":1193.4014949738
+                }, 
+                {
+                 "height":264.07712728797,
+                 "id":27,
+                 "name":"karaokeArea",
+                 "properties":[
+                        {
+                         "name":"jitsiRoom",
+                         "type":"string",
+                         "value":"Karaoke"
+                        }, 
+                        {
+                         "name":"jitsiWidth",
+                         "type":"int",
+                         "value":45
+                        }, 
+                        {
+                         "name":"openWebsiteClosable",
+                         "type":"bool",
+                         "value":false
+                        }],
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":537.934888919939,
+                 "x":2249.54589911974,
+                 "y":1113.59508173816
                 }],
          "opacity":1,
          "type":"objectgroup",

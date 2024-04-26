@@ -28,6 +28,7 @@ export default defineConfig({
             input: {
                 index: "./index.html",
                 invit: "./invit.html",
+                youtubeIframe: "./youtubeIframe.html",
                 ...getMapsScripts(maps),
             },
         },
