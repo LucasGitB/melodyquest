@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>YouTube IFrame Player</title>
+    <script src="https://play.workadventu.re/iframe_api.js"></script>
+    <script type="module" src=".ts"></script>
+</head>
+<body>
+    <!-- 1. Le <div> où l'iframe (et le lecteur YouTube) sera créé -->
+    <div id="player"></div>
+    
+    <script>
+        // 2. Charger le code de l'API YouTube de manière asynchrone
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        // 3. Fonction pour créer un <iframe> (et un lecteur YouTube)
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '360',
+                width: '640',
+                videoId: 'pKMAWRo9qGQ', // Remplacez par votre ID de vidéo
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        // 4. Fonction appelée lorsque le lecteur est prêt
+        function onPlayerReady(event) {
+            console.log("Le lecteur est prêt.");
+            event.target.playVideo(); // Démarrer la vidéo automatiquement
+        }
+
+        // 5. Fonction appelée lorsque l'état du lecteur change
+        function onPlayerStateChange(event) {
+            if (event.data === YT.PlayerState.PLAYING) {
+                console.log("La vidéo est en cours de lecture.");
+            } else if (event.data === YT.PlayerState.ENDED) {
+                
+            }
+        }
+
+        // Fonction pour arrêter la vidéo
+        function stopVideo() {
+            if (player) {
+                player.stopVideo();
+            }
+        }
+    </script>
+</body>
+</html>

@@ -19,7 +19,11 @@ WA.onInit().then(async () => {
         console.log('Scripting API Extra ready');
     }).catch(e => console.error(e));
 
-    
+    const myAreaSubscriber = WA.room.area.onEnter("singerZone").subscribe(() => {
+        const playerId = WA.player.uuid
+        console.log(playerId)
+        
+      });
     
     
     

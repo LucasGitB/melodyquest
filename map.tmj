@@ -2733,6 +2733,23 @@
                  "width":0,
                  "x":1376,
                  "y":1184
+                }, 
+                {
+                 "height":58.4242632528567,
+                 "id":23,
+                 "name":"singerZone",
+                 "properties":[
+                        {
+                         "name":"openWebsiteAllowApi",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":75.607870091932,
+                 "x":2475.29856516883,
+                 "y":1193.4014949738
                 }],
          "opacity":1,
          "type":"objectgroup",
