@@ -2775,6 +2775,28 @@
                  "width":156.826568265683,
                  "x":1472.06114918292,
                  "y":1133.36847654191
+                }, 
+                {
+                 "height":256,
+                 "id":21,
+                 "name":"popArea",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":476,
+                 "x":1760,
+                 "y":1662
+                }, 
+                {
+                 "height":60,
+                 "id":22,
+                 "name":"singerPopArea",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":72,
+                 "x":2032,
+                 "y":1734
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -3187,7 +3209,7 @@
          "y":0
         }],
  "nextlayerid":98,
- "nextobjectid":21,
+ "nextobjectid":23,
  "orientation":"orthogonal",
  "properties":[
         {

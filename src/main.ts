@@ -73,6 +73,20 @@ WA.onInit().then(async () => {
             WA.chat.close();
           },
         });
+      } else if (event.data.public == true) {
+        WA.chat.open();
+        WA.chat.sendChatMessage('Vous êtes invité pour chanter ! Invitation reçu de la part de ' + event.data.host + 'Cliquer sur le boutton REJOINDRE KARAOKE', { scope: 'local', author: 'Mr Robot' });
+        WA.ui.actionBar.addButton({
+          id: "joinKaraoke",
+          label:"Rejoindre Karaoke",
+          callback: (event: any) => {
+            
+            // When a user clicks on the action bar button 'Register', we remove it.
+            WA.player.teleport(x, y);
+            WA.ui.actionBar.removeButton("joinKaraoke");
+            WA.chat.close();
+          },
+        });
       }
     });
 
