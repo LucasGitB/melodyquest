@@ -45,7 +45,6 @@ WA.onInit().then(() => {
         const selectedOptions = Array.from(userSelect.selectedOptions); // Obtenir les options sélectionnées
         const invitFor = selectedOptions.map((option) => option.value); // Obtenir les valeurs des options sélectionnées
         const roomSelected = Array.from(musicType.selectedOptions).map((option => option.value));
-        console.log(roomSelected.toString()+"choix")
         if (roomSelected.toString() == "Rap") {
             console.log("salutttttt")
             x_to_tp = rapArea.x;
@@ -76,7 +75,7 @@ WA.onInit().then(() => {
         console.log(JSON.stringify(game) +"laaa")
         
         WA.event.broadcast("New-Game", game);
-
+        WA.player.state.singer = 'true';
         
         WA.player.teleport(x_to_tp, y_to_tp);
     });
@@ -123,7 +122,8 @@ WA.onInit().then(() => {
         
         
         WA.event.broadcast("New-Game", game);
-
+        WA.player.state.singer = 'true';
+        console.log("jason "+WA.player.state.singer)
         
         WA.player.teleport(x_to_tp, y_to_tp);
     });
