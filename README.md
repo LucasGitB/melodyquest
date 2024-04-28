@@ -2,40 +2,38 @@
 
 ![map](./map.png)
 
-Il s’agit d’un karaoké virtuel qui comporte des salles avec différents thèmes de musique et la possibilité de créer des salles privées. Il y’a une salle principale dans laquelle on trouve un accueil pour pouvoir choisir le thème de la salle souhaité donc une salle à thème ou une salle privée et qu’on veut et on peut également choisir d’inviter toute la map ou les personnages souhaités.
+Il s’agit d’un karaoké virtuel qui comporte des salles avec différents thèmes de musique et la possibilité de créer des salles privées. Il y’a une salle principale dans laquelle on trouve un accueil pour pouvoir choisir le thème de la salle souhaité donc une salle à thème ou une salle privée et qu’on veut et on peut également choisir d’inviter toute la map ou les personnages souhaités. Lorsque les joueurs sont téléportés dans leurs salles, il y'a un micro qui permet de lancer la vidéo du karaoké pour que tout le monde ait accès à ça, le joueur dois faire un partage d'écran et activé sa caméra et son micro pour que les autres joueurs puissent profiter de la performance du chanteur. À la fin de chaque partie, il y'a un système d'évaluation pour noter la performance et pour pouvoir classer les joueurs !
 
-![image](https://github.com/LucasGitB/melodyquest/assets/83619646/708db3ee-cc76-4e7e-a032-3324b6e2270c)
+## Video
 
-## Production environment
+https://drive.google.com/file/d/1uxG5JTUiSTqrXOMjmrNkWtiNCHcqF6Pv/view?usp=sharing
 
+## Lien du repository de l'API 
+
+https://github.com/LucasGitB/melodyquestrating.git
 
 ## Contributors
 
+List of functionalities along with the respective authors:
+
+** Création de l'API pour l'accueil + système de notation + tableau de scores (Raouf + Lucas)*
+** Système d'invitation + téléportation *
+
+
+
 ### Developer Team
 
-Lucas AFONSO - Alias : @LucasGitB
-Jason AFONSO - Alias : @JasonAfs
-Raouf ABDOU MSA - Alias : @raouf-abdoumsa
+**Lucas AGUESSE - Alias *: @LucasGitB
+**Jason AFONSO - Alias *: @JasonAfs
+**Raouf ABDOU MSA - Alias *: @raouf-abdoumsa
 
-* *public*: Static files like PDFs or audio files
-* *src*: Scripts files
-* *tilesets*: All tilesets
-* *map.tmj*: Map file
-* *map.png*: The map thumbnail displayed on the in-game map information
-
-If you want to use more than one map file, just add the new map file on root or in a folder.
-
-we recommend using 500x500 images for the map thumbnails.
-
-If you are going to create custom websites to embed in the map, please reference the HTML files in the `input` option in *vite.config.js*.
 
 ## Technical Stack
 
-This project utilizes a stack comprising TypeScript and Node.js for the WorkAdventure map functionality, along with Symfony for the LiveScore API:
-
-TypeScript: For scripting within WorkAdventure maps to manage dynamic behaviors.
-Node.js: Serves as the runtime environment for developing and testing the interactive maps.
-Laravel: Used for the LiveScore API, managing live score updates, video streaming, and sport of the day.
+TypeScript
+Node.js
+Laravel
+ExpresJs
 
 ## Requirements
 
@@ -57,6 +55,12 @@ You can test the optimized map as it will be in production:
 npm run build
 npm run prod
 ```
+## BDD
+
+Vous devez créer une variable d'environnement dans le dossier backend :
+Dans un fichier .env
+
+DATABASE_URL=postgres://postgres.hvrnzohgbgijettvhzek:melodyquest2024@aws-0-eu-central-1.pooler.supabase.com:5432/postgres
 
 ## Licenses
 
