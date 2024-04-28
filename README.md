@@ -16,8 +16,8 @@ https://github.com/LucasGitB/melodyquestrating.git
 
 List of functionalities along with the respective authors:
 
- * Création de l'API pour l'accueil + système de notation + tableau de scores (Raouf + Lucas)*
- * Système d'invitation + téléportation (Jason)*
+ * Création de l'API pour l'accueil + système de notation + tableau de scores (Raouf + Lucas)
+ * Système d'invitation + téléportation (Jason)
 
 
 ### Developer Team
