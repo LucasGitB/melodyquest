@@ -16,15 +16,15 @@ https://github.com/LucasGitB/melodyquestrating.git
 
 List of functionalities along with the respective authors:
 
- Création de l'API pour l'accueil + système de notation + tableau de scores (Raouf + Lucas)
- Système d'invitation + téléportation 
+ * Création de l'API pour l'accueil + système de notation + tableau de scores (Raouf + Lucas)*
+ * Système d'invitation + téléportation (Jason)*
 
 
 ### Developer Team
 
-*Lucas AGUESSE - Alias *: @LucasGitB*
-*Jason AFONSO - Alias *: @JasonAfs*
-*Raouf ABDOU MSA - Alias *: @raouf-abdoumsa*
+* Lucas AGUESSE - Alias *: @LucasGitB*
+* Jason AFONSO - Alias *: @JasonAfs*
+* Raouf ABDOU MSA - Alias *: @raouf-abdoumsa*
 
 
 ## Technical Stack
