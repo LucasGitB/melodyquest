@@ -9,6 +9,8 @@ Il s’agit d’un karaoké virtuel qui comporte des salles avec différents th�
 Vous devez créer une variable d'environnement dans le dossier backend :
 Dans un fichier .env
 
+DATABASE_URL=postgres://postgres.hvrnzohgbgijettvhzek:melodyquest2024@aws-0-eu-central-1.pooler.supabase.com:5432/postgres
+
 ## Video
 
 https://drive.google.com/file/d/1uxG5JTUiSTqrXOMjmrNkWtiNCHcqF6Pv/view?usp=sharing
@@ -59,8 +61,6 @@ You can test the optimized map as it will be in production:
 npm run build
 npm run prod
 ```
-
-DATABASE_URL=postgres://postgres.hvrnzohgbgijettvhzek:melodyquest2024@aws-0-eu-central-1.pooler.supabase.com:5432/postgres
 
 ## Licenses
 
