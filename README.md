@@ -4,6 +4,11 @@
 
 Il s’agit d’un karaoké virtuel qui comporte des salles avec différents thèmes de musique et la possibilité de créer des salles privées. Il y’a une salle principale dans laquelle on trouve un accueil pour pouvoir choisir le thème de la salle souhaité donc une salle avec un style de musique choisi ou une salle privée. On peut également choisir d’inviter toute la map ou les personnages souhaités. Lorsque les joueurs sont téléportés dans leurs salles, il y'a un micro qui permet de lancer la vidéo du karaoké pour que tout le monde ait accès à ça, le joueur dois faire un partage d'écran et activé sa caméra et son micro pour que les autres joueurs puissent profiter de la performance du chanteur. À la fin de chaque partie, il y'a un système d'évaluation pour noter la performance et pour pouvoir classer les joueurs !
 
+## BDD
+
+Vous devez créer une variable d'environnement dans le dossier backend :
+Dans un fichier .env
+
 ## Video
 
 https://drive.google.com/file/d/1uxG5JTUiSTqrXOMjmrNkWtiNCHcqF6Pv/view?usp=sharing
@@ -54,10 +59,6 @@ You can test the optimized map as it will be in production:
 npm run build
 npm run prod
 ```
-## BDD
-
-Vous devez créer une variable d'environnement dans le dossier backend :
-Dans un fichier .env
 
 DATABASE_URL=postgres://postgres.hvrnzohgbgijettvhzek:melodyquest2024@aws-0-eu-central-1.pooler.supabase.com:5432/postgres
 
